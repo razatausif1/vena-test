@@ -563,7 +563,7 @@
   }
   
   @media only screen and (max-width: 2560px) {
-    .banner .box-left-content {
+    .banner .box-left-content, .banner .banner-box {
       height: 60vh;
     }
   }

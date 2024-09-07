@@ -1,11 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+  <head>
+    <title>JavaScript Sandbox</title>
+    <meta charset="UTF-8" />
+
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="main_wrapper">
+        <div class="mobile-navigation hide modal" id="myModal">
+          <div class="m-header d-flex">
+            <h4>Filters</h4>
+            <span class="close-nav close" onclick="closeModal()"
+              ><i class="fa-solid fa-xmark"></i
+            ></span>
+          </div>
+          <div class="m-nav-catogory">
+            <a href="#" class="clearAll" id="clear-all">Clear all</a>
+            <div class="catog-list">
+              <h5>Categories</h5>
+              <ul class="mobile-catogories">
+                <li>
+                  <label class="form-control">
+                    <input type="checkbox" name="checkbox" />
+                    <span>Jewellery</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-blue">see 17 results</button>
+            </div>
+          </div>
+        </div>
+        <header>
+          <nav class="header_bg">
+            <div class="container">
+              <div class="nav-bar">
+                <div
+                  class="hanburger-mobile open-modal-btn"
+                  onclick="openModal()"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="logo">
+                  <h1>VENIA</h1>
+                </div>
+                <div class="navigation">
+                  <ul class="d-flex">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Smart Gear</a></li>
+                    <li><a href="#">Accessories</a></li>
+                  </ul>
+                </div>
+                <div class="cart">
+                  <div class="cart-wrapper">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-items">10</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <section class="banner">
+          <div class="d-flex v-align">
+            <div class="box-left-content">
+              <h2>Men's Outerwear</h2>
+            </div>
+            <div class="banner-box">
+              Banner Image
+              <!-- <img src="images/banne4.png" alt="banner" class="d-block" /> -->
+            </div>
+          </div>
+        </section>
+
+        <section class="items-wrapper">
+          <div class="container">
+            <div class="d-flex">
+              <div class="width-3">
+                <div class="catagories" id="filter-section">
+                  <div class="m-nav-catogory">
+                    <div class="catog-list">
+                      <p>
+                        <a href="#">Clothing /</a>
+                        <a href="#">Women's /</a>
+                        <a href="#">Outerwear</a>
+                      </p>
+                      <div class="filter-mobile">
+                        <div class="d-flex">
+                          <div class="result-filter">
+                            <i class="fa-solid fa-filter"></i> Filter Results
+                          </div>
+                          <div class="result-filter">
+                            <i class="fa-solid fa-arrow-down-wide-short"></i>
+                            Sort Products
+                          </div>
+                        </div>
+                      </div>
+
+                      <ul class="mobile-catogories" id="category-list">
+                        <li>
+                          <h5>Categories</h5>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="width-7">
+                <div class="search-result d-flex">
+                  <p class="results">
+                    <span class="found-items">38</span> Results
+                  </p>
+                  <input
+                    type="text"
+                    class="seach"
+                    placeholder="search"
+                    onkeyup="searchList(event)"
+                  />
+
+                  <div class="search-box">
+                    <select
+                      class="sort_select"
+                      id="sortDropdown"
+                      onchange="sortBy(event)"
+                    >
+                      <option>Sort By</option>
+                      <option value="price-asc">Price: Low to High</option>
+                      <option value="price-desc">Price: High to Low</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="items-list">
+                  <div id="spinner" class="spinner"></div>
+                  <ul class="items" id="image-list"></ul>
+                  <div class="text-center mt-5">
+                    <button
+                      id="load-more"
+                      class="load-more-btn"
+                      onclick="loadMoreData()"
+                      style="display: none"
+                    >
+                      Load More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          <div class="container">
+            <ul class="d-flex footer_list">
+              <li>
+                <h4>Account</h4>
+                <p><a href="#">Sign In</a></p>
+                <p><a href="#">Register</a></p>
+                <p><a href="#">Order Status</a></p>
+              </li>
+              <li>
+                <h4>About Us</h4>
+                <p><a href="#">Our Story</a></p>
+                <p><a href="#">Careers</a></p>
+              </li>
+              <li>
+                <h4>Help</h4>
+                <p><a href="#">Contact Us</a></p>
+                <p><a href="#">Order Status</a></p>
+                <p><a href="#">Returns</a></p>
+              </li>
+              <li>
+                <h4>Follow Us!</h4>
+                <p class="para">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. dummy text of the printing
+                </p>
+                <p class="icons">
+                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </p>
+              </li>
+            </ul>
+
+            <div class="copy-right-setion d-flex">
+              <h3>VENIA</h3>
+              <p class="copy">
+                &copy; <span id="year"></span> Your Company Name. Address Ave.
+                City Name, State Zip
+              </p>
+              <p class="copy-links">
+                <a href="#">Terms of Use</a> <a href="#">Privacy Policy</a>
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+
+  <script src="script.js"></script>
 </html>
